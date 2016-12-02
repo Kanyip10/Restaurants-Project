@@ -58,7 +58,7 @@ app.get("/signup", function(req, res){
 
 //Sign Up Controller
 app.post("/signup", function(req, res){
-	mongoose.connect('mongodb://localhost/test')
+	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 	var accountSchema = require('./models/account_model');
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console,'connection error'));
@@ -90,7 +90,7 @@ app.get("/login", function(req, res){
 
 //Login Controller
 app.post("/login", function(req, res){
-	mongoose.connect('mongodb://localhost/test')
+	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 	var accountSchema = require('./models/account_model');
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console,'connection error'));
@@ -149,7 +149,7 @@ app.post("/api/create", function(req, res){
 		r['name'] = (req.body.name != null) ? req.body.name : null;
 		r['restaurantid'] = (req.body.restaurantid != null) ? req.body.restaurantid : null;
 */
-		mongoose.connect('mongodb://localhost/test')
+		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 		var  restaurantSchema = require('./models/restaurant_model');
 		var db = mongoose.connection;
 		db.on('error', console.error.bind(console,'connection error'));
@@ -193,7 +193,7 @@ app.get("/list", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	} else{
-		mongoose.connect('mongodb://localhost/test')
+		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 		var db = mongoose.connection;
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var Restaurant = mongoose.model('Restaurant');
@@ -239,7 +239,7 @@ app.get("/search", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	} else{
-		mongoose.connect('mongodb://localhost/test')
+		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var db = mongoose.connection;
 		db.on('error', console.error.bind(console,'connection error'))
@@ -272,7 +272,7 @@ app.get("/api/read/name/:name", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	} else{
-		mongoose.connect('mongodb://localhost/test')
+		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var db = mongoose.connection;
 		db.on('error', console.error.bind(console,'connection error'))
@@ -302,7 +302,7 @@ app.get("/api/read/borough/:borough", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	} else {
-		mongoose.connect('mongodb://localhost/test')
+		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var db = mongoose.connection;
 		db.on('error', console.error.bind(console,'connection error'))
@@ -332,7 +332,7 @@ app.get("/api/read/cuisine/:cuisine", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	}else{
-		mongoose.connect('mongodb://localhost/test')
+		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var db = mongoose.connection;
 		db.on('error', console.error.bind(console,'connection error'));
@@ -363,7 +363,7 @@ app.get("/display", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	} else {
-		mongoose.connect('mongodb://localhost/test')
+		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 		var db = mongoose.connection;
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var Restaurant = mongoose.model('Restaurant');
@@ -403,7 +403,7 @@ app.get("/display", function(req, res){
 
 //Edit the information of the restaurant
 app.get("/update", function(req, res){
-	mongoose.connect('mongodb://localhost/test')
+	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 		var db = mongoose.connection;
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var Restaurant = mongoose.model('Restaurant');
@@ -450,7 +450,7 @@ app.get("/update", function(req, res){
 
 //Update Controller
 app.post("/update", function(req, res){
-	mongoose.connect('mongodb://localhost/test')
+	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 	var  restaurantSchema = require('./models/restaurant_model');
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console,'connection error'));
@@ -492,7 +492,7 @@ app.post("/update", function(req, res){
 
 //Edit the information of the restaurant
 app.get("/delete", function(req, res){
-	mongoose.connect('mongodb://localhost/test')
+	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 		var db = mongoose.connection;
 		var  RestaurantSchema = require('./models/restaurant_model');
 		db.on('error', console.error.bind(console,'connection error'));
@@ -545,7 +545,7 @@ app.get("/rate", function(req, res){
 });
 
 app.post("/rate", function(req, res){
-	mongoose.connect('mongodb://localhost/test')
+	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
 	var  restaurantSchema = require('./models/restaurant_model');
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console,'connection error'));
@@ -588,79 +588,5 @@ app.post("/rate", function(req, res){
 		});
 	});
 });
-	
-	
-//Restaurant creation using api
-app.post ('/api/create/:name', function(req, res){
-		/*
-		var r = {};  // new restaurant to be inserted
-		r['address'] = {};
-		r.address.street = (req.body.street != null) ? req.body.street : null;
-		r.address.zipcode = (req.body.zipcode != null) ? req.body.zipcode : null;
-		r.address.building = (req.body.building != null) ? req.body.building : null;
-		r.address['coord'] = [];
-		r.address.coord.push(req.body.lon);
-		r.address.coord.push(req.body.lat);
-		r['borough'] = (req.body.borough != null) ? req.body.borough : null;
-		r['cuisine'] = (req.body.cuisine != null) ? req.body.cuisine : null;
-		r['name'] = (req.body.name != null) ? req.body.name : null;
-		r['restaurantid'] = (req.body.restaurantid != null) ? req.body.restaurantid : null;
-		*/
-		var r = {};  // new restaurant to be inserted
-		r['name'] = (req.params.name != null) ? req.params.name : null;
-		
-		mongoose.connect('mongodb://localhost/test')
-		var  restaurantSchema = require('./models/restaurant_model');
-		var db = mongoose.connection;
-		db.on('error', console.error.bind(console,'connection error'));
-		db.once('open', function() {
-			var Restaurant = mongoose.model('Restaurant');
-			var newR = new Restaurant(r);
-			//var newR = new Restaurant({name : req.params.name});
-		/*
-			newR.set('address.building', req.params.building);
-			newR.set('address.street', req.params.street);
-			newR.set('address.zipcode', req.params.zipcode);
-			var coordArray = [];
-			coordArray.push(req.params.lon);
-			coordArray.push(req.params.lat);
-			newR.set('address.coord', coordArray);
-			newR.set('borough', req.params.borough);
-			newR.set('cuisine', req.params.cuisine);
-			newR.set('restaurantid', req.params.restaurantid);
-			//newR.set('photo.data', new Buffer((req.files.photo.data).toString('base64')));
-			//newR.set('photo.contentType', req.files.photo.mimetype);
-			//newR.set('owner', req.session.user.userid);
-*/
-			newR.save(function(err){
-				if (err){	
-					db.close();				
-					res.send('<h2>Access denied!</h2><br>'+
-					'<p>Why!</p><br>' +
-					'<input type ="button" onclick="history.back()" value="Go back"></input>');
-				} else{
-					console.log("Restaurant has been created sucessfully!");
-					db.close();
-					res.json({'status' : ok, '_id' : newR._id});
-				}
-			})
-		})
-	
-});
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+			
 app.listen(process.env.PORT || 8099);
