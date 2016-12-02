@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<title>Create a Restaurant</title>
+</head>
+<body>
+
+<form action="http://localhost:8099/create" method="POST" enctype="multipart/form-data">
+	<h1>Create a new Restaurant</h1><br>
+	
+	<h2>Name of restaurant:</h2>
+	<input type="text" name="name"><br>
+
+	<h2>Address:</h2>
+	Building: <input type="text" name="building"><br>
+	Street: <input type="text" name="street"><br>
+	Zipcode: <input type="text" name="zipcode"><br>
+	<h3>Coordinates:</h3>
+	Latitude: <input type="text" name="lat"><br>
+	Longitude: <input type="text" name="lon"><br>
+
+
+	<h2>Other Info</h2>
+	Borough: <input type="text" name="borough"><br>
+	Cuisine: <input type="text" name="cuisine"><br>
+	Restaurant Id: <input type="text" name="restaurantid"><br>
+	Photo: <input type="file" name="photo">
+	<br>
+	<br>
+	<input type="submit" value="Create">
+	<br>
+	<br>
+</form>
+
+
+<a href="/logout">Logout</a>
+<input type="button" onclick="<a href='/list'>"value = "List"></input>
+<input type ="button" onclick="history.back()" value="Go back"></input>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Restaurant</title>
+</head>
+<body><H1>Restaurants</H1>
+<H2>Showing <%=len%></H2>
+<ol>
+
+	<% for(var i = 0; i < len; i++) { %>
+		<li><a href="/display?_id=<%=restaurants[i]._id%>"><%=restaurants[i].name%></li>
+	<% } %>
+
+</ol>
+<br>
+<br>
+<br>
+<br>
+<a href="/logout">Logout</a>
+<a href="/api/create">New</a>
+<a href="/search">Search</a>
+</body>
+</html>

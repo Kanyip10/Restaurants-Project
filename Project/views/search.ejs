@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<title>Seach restaurant</title>
+</head>
+<body>
+<form action = http://localhost:8099/list method="GET">
+	<h2>Search by Name</h2>
+	Name: <input type="text" name="name">
+	<br>
+	
+	<h2>Search by Borough</h2>
+	Borough: <select name = "borough">
+		<option value= null></option>
+	<% for(var i = 0; i < boroughList.length; i++) { %>
+		<option value = "<%=boroughList[i]%>"> <%=boroughList[i]%></option>
+	<% } %>
+	</select>
+	<br>
+	
+	<h2>Search by Cuisine</h2>
+	Cuisine: <select name = "cuisine">
+		<option value= null></option>
+	<% for(var i = 0; i < cuisineList.length; i++) { %>
+		<option value = "<%=cuisineList[i]%>"> <%=cuisineList[i]%></option>
+	<% } %>
+	</select>
+	
+	<br>
+	<br>
+	
+	<input type="submit" value ="Search">
+</form>
+
+<a href="/logout">Logout</a>
+<input type="button" onclick="<a href='/list'>"value = "List"></input>
+<input type ="button" onclick="history.back()" value="Go back"></input>
+</body>
+</html>
+

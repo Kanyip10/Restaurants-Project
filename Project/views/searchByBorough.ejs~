@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+	<title>Seach Restaurant By Borough</title>
+</head>
+<body>
+<form action = http://localhost:8099/list method="GET">
+
+	<h2>Search by Borough</h2>
+	Borough: <select name = "borough">
+	<% for(var i = 0; i < boroughList.length; i++) { %>
+		<option value = "<%=boroughList[i]%>"> <%=boroughList[i]%></option>
+	<% } %>
+	</select>
+	
+	<br>
+	<br>
+	
+	<input type="submit" value ="Search">
+</form>
+</body>
+</html>
