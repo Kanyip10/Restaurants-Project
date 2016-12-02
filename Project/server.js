@@ -7,7 +7,7 @@ var assert = require('assert');
 var app = express();
 var url = require('url');
 var fileUpload = require('express-fileupload');
-
+var watson = require('watson-developer-cloud');
 
 
 /*
@@ -58,7 +58,7 @@ app.get("/signup", function(req, res){
 
 //Sign Up Controller
 app.post("/signup", function(req, res){
-	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+	mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 	var accountSchema = require('./models/account_model');
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console,'connection error'));
@@ -90,7 +90,7 @@ app.get("/login", function(req, res){
 
 //Login Controller
 app.post("/login", function(req, res){
-	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+	mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 	var accountSchema = require('./models/account_model');
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console,'connection error'));
@@ -103,6 +103,7 @@ app.post("/login", function(req, res){
 				if(result.password == user.password || result.password ==""){
 					req.session.user = user;
 					req.session.userid = user.userid;
+					db.close()
 					res.redirect('/list');
 				} else{
 					db.close();
@@ -149,7 +150,7 @@ app.post("/api/create", function(req, res){
 		r['name'] = (req.body.name != null) ? req.body.name : null;
 		r['restaurantid'] = (req.body.restaurantid != null) ? req.body.restaurantid : null;
 */
-		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+		mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 		var  restaurantSchema = require('./models/restaurant_model');
 		var db = mongoose.connection;
 		db.on('error', console.error.bind(console,'connection error'));
@@ -193,7 +194,7 @@ app.get("/list", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	} else{
-		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+		mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 		var db = mongoose.connection;
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var Restaurant = mongoose.model('Restaurant');
@@ -239,7 +240,7 @@ app.get("/search", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	} else{
-		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+		mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var db = mongoose.connection;
 		db.on('error', console.error.bind(console,'connection error'))
@@ -272,7 +273,7 @@ app.get("/api/read/name/:name", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	} else{
-		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+		mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var db = mongoose.connection;
 		db.on('error', console.error.bind(console,'connection error'))
@@ -302,7 +303,7 @@ app.get("/api/read/borough/:borough", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	} else {
-		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+		mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var db = mongoose.connection;
 		db.on('error', console.error.bind(console,'connection error'))
@@ -332,7 +333,7 @@ app.get("/api/read/cuisine/:cuisine", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	}else{
-		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+		mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var db = mongoose.connection;
 		db.on('error', console.error.bind(console,'connection error'));
@@ -363,7 +364,7 @@ app.get("/display", function(req, res){
 					'<p>You have no rights to access this page!</p><br>' +
 					'<a href="/login">Login</a>');
 	} else {
-		mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+		mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 		var db = mongoose.connection;
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var Restaurant = mongoose.model('Restaurant');
@@ -403,7 +404,7 @@ app.get("/display", function(req, res){
 
 //Edit the information of the restaurant
 app.get("/update", function(req, res){
-	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+	mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 		var db = mongoose.connection;
 		var  RestaurantSchema = require('./models/restaurant_model');
 		var Restaurant = mongoose.model('Restaurant');
@@ -450,7 +451,7 @@ app.get("/update", function(req, res){
 
 //Update Controller
 app.post("/update", function(req, res){
-	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+	mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 	var  restaurantSchema = require('./models/restaurant_model');
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console,'connection error'));
@@ -492,7 +493,7 @@ app.post("/update", function(req, res){
 
 //Edit the information of the restaurant
 app.get("/delete", function(req, res){
-	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+	mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 		var db = mongoose.connection;
 		var  RestaurantSchema = require('./models/restaurant_model');
 		db.on('error', console.error.bind(console,'connection error'));
@@ -545,7 +546,7 @@ app.get("/rate", function(req, res){
 });
 
 app.post("/rate", function(req, res){
-	mongoose.connect('mongodb://admin:password@ds159737.mlab.com:59737/restaurants')
+	mongoose.connect('mongodb://user:pwd@ds159737.mlab.com:59737/restaurants')
 	var  restaurantSchema = require('./models/restaurant_model');
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console,'connection error'));
@@ -589,4 +590,6 @@ app.post("/rate", function(req, res){
 	});
 });
 			
-app.listen(process.env.PORT || 8099);
+app.listen(8099, function() {
+    console.log('Server running...');
+});
