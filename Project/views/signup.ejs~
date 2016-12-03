@@ -1,16 +1,15 @@
 <!doctype html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Sign Up</title>
 </head>
 <body>
-<form action = http://marspj.mybluemix.net/login method="POST">
-	<h2>Login</h2>
+<form action = http://marspj.mybluemix.net/signup method="POST">
+	<h2>Sign Up</h2>
 	UserID: <input type="text" name="userid"><br>
 	Password: <input type="password" name="password"><br>
-	<input type="submit" value="Login">
+	<input type="submit" value="Sign Up">
 </form>
-<a href="/signup">Sign Up</a>
 </body>
 </html>
 

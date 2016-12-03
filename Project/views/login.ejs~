@@ -10,7 +10,7 @@
 	Password: <input type="password" name="password"><br>
 	<input type="submit" value="Login">
 </form>
-<a href="/signup">Sign Up</a>
+<a href="/login">Login</a>
 </body>
 </html>
 

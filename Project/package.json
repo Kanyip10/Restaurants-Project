@@ -12,9 +12,12 @@
     	"body-parser": "latest",
     	"express-session": "latest",
     	"express-fileupload": "latest",
-    	"connect-mongo": "latest"
+    	"connect-mongo": "latest",
+    	"cfenv": "^1.0.0"
 	},
-
-	"engine": "*",
-	"scripts" : {"start" : "node server"}
+	"scripts" : {
+		"start": "node server.js"
+	},
+	"repository": {},
+	"engine": "*"
 }

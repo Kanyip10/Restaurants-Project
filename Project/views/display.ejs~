@@ -52,7 +52,7 @@ GPS:[<%=latitude%>,<%=longitude%>]<br>
 <a href="/logout">Logout</a>
 <a href="/update?_id=<%=objectID%>">Update</a>
 <a href="/delete?_id=<%=objectID%>">Delete</a>
-<a href="/list">Home</a>
+<a href='/list'>"value = "Home"></a>
 <input type ="button" onclick="history.back()" value="Go back"></input>
 </body>
 </html>

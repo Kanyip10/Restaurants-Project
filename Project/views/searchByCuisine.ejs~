@@ -4,7 +4,7 @@
 	<title>Seach Restaurant By Cuisine</title>
 </head>
 <body>
-<form action = http://marspj.mybluemix.net/list method="GET">
+<form action = http://localhost:8099/list method="GET">
 	<h2>Search by Cuisine</h2>
 	Cuisine: <select name = "cuisine">
 	<% for(var i = 0; i < cuisineList.length; i++) { %>

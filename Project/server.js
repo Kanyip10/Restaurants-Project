@@ -7,8 +7,7 @@ var assert = require('assert');
 var app = express();
 var url = require('url');
 var fileUpload = require('express-fileupload');
-var watson = require('watson-developer-cloud');
-
+var http = require('http'); 
 
 /*
 var url = require('url');
@@ -590,6 +589,4 @@ app.post("/rate", function(req, res){
 	});
 });
 			
-app.listen(8099, function() {
-    console.log('Server running...');
-});
+app.listen(process.env.PORT || 8099);

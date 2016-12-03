@@ -4,7 +4,7 @@
 	<title>Seach Restaurant By Borough</title>
 </head>
 <body>
-<form action = http://marspj.mybluemix.net/list method="GET">
+<form action = http://localhost:8099/list method="GET">
 
 	<h2>Search by Borough</h2>
 	Borough: <select name = "borough">

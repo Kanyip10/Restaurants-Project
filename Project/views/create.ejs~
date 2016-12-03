@@ -34,7 +34,7 @@
 
 
 <a href="/logout">Logout</a>
-<a href="/list">Home</a>
+<input type="button" onclick="<a href='/list'>"value = "List"></input>
 <input type ="button" onclick="history.back()" value="Go back"></input>
 </body>
 </html>

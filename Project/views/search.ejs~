@@ -33,7 +33,7 @@
 </form>
 
 <a href="/logout">Logout</a>
-<input type="button" onclick="<a href='/list'>"value = "List"></input>
+<a href='/list'>"value = "Home"></a>
 <input type ="button" onclick="history.back()" value="Go back"></input>
 </body>
 </html>
