@@ -556,9 +556,7 @@ app.post("/rate", function(req, res){
 			for (var i =0; i < result.grades.length; i++){
 				if (result.grades[i].marker == req.session.user.userid){
 					rated = true;
-				} else{
-					rated = false;
-				}
+				} 
 			}
 			
 			if (rated){
